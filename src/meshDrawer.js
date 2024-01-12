@@ -171,7 +171,11 @@ void main()
 	// PLEASE DO NOT CHANGE ANYTHING ABOVE !!!
 	// Calculate the diffuse and specular lighting below.
 
+	diff = max(dot(normal, lightdir), 0.0);
 
+	vec3 viewDir = vec3(0.0, 0.0, 1.0);
+	vec3 reflectDir = reflect(-lightdir, normal);
+	spec = pow(max(dot(viewDir, reflectDir), 0.0), phongExp);
 
 	// PLEASE DO NOT CHANGE ANYTHING BELOW !!!
 	/////////////////////////////////////////////////////////////////////////////
